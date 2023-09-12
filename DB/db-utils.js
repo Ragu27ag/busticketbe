@@ -27,6 +27,14 @@ const getOneEntityHis = async (name, obj) => {
     .toArray();
 };
 
+const getOneEntityHisno = async (name, obj) => {
+  return await client
+    .db("Travels")
+    .collection(name)
+    .find({ no: obj })
+    .toArray();
+};
+
 const getOneTicket = async (name, obj) => {
   return await client.db("Travels").collection(name).findOne({ no: obj });
 };
@@ -42,4 +50,5 @@ export {
   getOneEntity,
   getOneTicket,
   getOneEntityHis,
+  getOneEntityHisno,
 };

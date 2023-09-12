@@ -5,6 +5,7 @@ import {
   editEntity,
   getAllEntity,
   getOneEntityHis,
+  getOneEntityHisno,
   getOneTicket,
 } from "../DB/db-utils.js";
 import { authchk } from "../middelware/auth-chk.js";
@@ -31,6 +32,14 @@ dataroute.get("/history/:email", authchk, async (req, res) => {
   const { email } = req.params;
   console.log("sfdf", email);
   const data = await getOneEntityHis("bookhistory", email);
+  console.log("asdaddfsf", data);
+  res.send(data);
+});
+
+dataroute.get("/bookhistory/:no", authchk, async (req, res) => {
+  const { no } = req.params;
+  console.log("sfdf", no);
+  const data = await getOneEntityHisno("bookhistory", no);
   console.log("asdaddfsf", data);
   res.send(data);
 });
