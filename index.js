@@ -4,6 +4,7 @@ import { dataroute } from "./Routers/datarouter.js";
 import authroute from "./Routers/authrouter.js";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import payment from "./Routers/payrouter.js";
 
 const app = express();
 
@@ -58,6 +59,7 @@ app.post("/email", (req, res) => {
 });
 app.use("/tickets", dataroute);
 app.use("/users", authroute);
+app.use("/", payment);
 
 app.listen(5000, () => {
   console.log("http://localhost:5000");
